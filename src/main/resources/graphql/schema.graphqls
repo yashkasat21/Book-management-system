@@ -8,7 +8,6 @@ allBooks:[Book]
 getBook(bookId:Int):Book
 
 }
-
 type Book{
 
     id:ID!

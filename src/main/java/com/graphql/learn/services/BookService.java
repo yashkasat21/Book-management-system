@@ -1,6 +1,6 @@
 package com.graphql.learn.services;
 
-import com.graphql.learn.entities.Book;
+import com.graphql.learn.model.Book;
 
 import java.util.List;
 

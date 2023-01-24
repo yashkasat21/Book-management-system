@@ -1,11 +1,11 @@
-package com.graphql.learn.entities;
+package com.graphql.learn.model;
 
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "project_books")
+@Document(collection = "books")
 @Getter
 @Setter
 @ToString
@@ -14,8 +14,7 @@ import javax.persistence.*;
 public class Book {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
     private String title;
     private String desc;
     private String author;

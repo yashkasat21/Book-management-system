@@ -1,6 +1,6 @@
 package com.graphql.learn;
 
-import com.graphql.learn.entities.Book;
+import com.graphql.learn.model.Book;
 import com.graphql.learn.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

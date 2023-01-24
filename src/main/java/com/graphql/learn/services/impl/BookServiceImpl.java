@@ -1,7 +1,7 @@
 package com.graphql.learn.services.impl;
 
-import com.graphql.learn.entities.Book;
-import com.graphql.learn.repositories.BookRep;
+import com.graphql.learn.model.Book;
+import com.graphql.learn.repository.BookRep;
 import com.graphql.learn.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.util.List;
 public class BookServiceImpl implements BookService {
 
 
-    private BookRep bookRep;
+    private final BookRep bookRep;
 
     @Autowired
     public BookServiceImpl(BookRep bookRep) {
