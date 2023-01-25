@@ -1,6 +1,7 @@
 package com.graphql.learn;
 
 import com.graphql.learn.model.Book;
+import com.graphql.learn.repository.BookRep;
 import com.graphql.learn.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,12 +14,16 @@ public class GraphqlProjectApplication implements CommandLineRunner {
     @Autowired
     private BookService bookService;
 
+    @Autowired
+    private BookRep bookRepository;
+
     public static void main(String[] args) {
         SpringApplication.run(GraphqlProjectApplication.class, args);
     }
 
     @Override
     public void run(String... args) throws Exception {
+        this.bookRepository.deleteAll();
         Book b1 = new Book();
         b1.setTitle("Complete Reference");
         b1.setDesc("For learning java");

@@ -22,7 +22,7 @@ public class QueryResolver {
 
     //get single book
     @QueryMapping("getBook")
-    public Book get(@Argument int bookId) {
+    public Book get(@Argument String bookId) {
         return this.bookService.get(bookId);
     }
 }

@@ -13,6 +13,7 @@ public interface BookService {
     List<Book> getAll();
 
     //get single book
-    Book get(int bookId);
+    Book get(String bookId);
 
+    String delete(String bookId);
 }

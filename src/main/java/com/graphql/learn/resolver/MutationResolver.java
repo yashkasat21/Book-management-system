@@ -24,4 +24,9 @@ public class MutationResolver {
         b.setPages(book.getPages());
         return this.bookService.create(b);
     }
+
+    @MutationMapping("deleteBook")
+    public String delete(@Argument String bookId) {
+        return this.bookService.delete(bookId);
+    }
 }

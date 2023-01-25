@@ -30,7 +30,22 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book get(int bookId) {
-        return this.bookRep.findById(bookId).orElseThrow(() -> new RuntimeException("Book you are looking for not found on server !!"));
+    public Book get(String bookId) {
+        Book b = this.bookRep.findById(bookId);
+        if(b == null) {
+            throw new RuntimeException("Book not found");
+        }
+        return b;
+    }
+
+    @Override
+    public String delete(String bookId) {
+        Book b;
+        b = this.get(bookId);
+        if(b == null) {
+            throw new NullPointerException();
+        }
+        this.bookRep.delete(b);
+        return "Book deleted Successfully";
     }
 }

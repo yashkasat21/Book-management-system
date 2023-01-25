@@ -1,5 +1,6 @@
 type Mutation{
 createBook(book:BookInput):Book
+deleteBook(bookId: String): String
 }
 
 type Query{
