@@ -2,7 +2,8 @@ pipeline {
     agent { docker { image 'maven:3.8.7-eclipse-temurin-17-focal'}}
     environment {
         dockerHome = tool 'myDocker'
-        PATH = "$dockerHome/bin:$PATH"
+        mavenHome = tool 'myMaven'
+        PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
     }
     stages{
         stage("Checkout"){
@@ -32,7 +33,7 @@ pipeline {
         stage("Build Docker Image"){
                     steps {
                         script{
-                          dockerImage = myDocker.build("yashkasat32/graphql-java:${env.BUILD_TAG}")
+                          dockerImage = docker.build("yashkasat32/graphql-java:${env.BUILD_TAG}")
 
                         }
                     }
@@ -40,7 +41,7 @@ pipeline {
         stage("Push Docker Image"){
                             steps {
                                 script{
-                                  dockerImage = myDocker.withRegistry('','dockerhub')
+                                  dockerImage = docker.withRegistry('','dockerhub')
                                   dockerImage.push()
                                   dockerImage.push('latest')
                                 }
