@@ -32,7 +32,7 @@ pipeline {
         stage("Build Docker Image"){
                     steps {
                         script{
-                          dockerImage = docker.build("yashkasat32/graphql-java:${env.BUILD_TAG}")
+                          dockerImage = myDocker.build("yashkasat32/graphql-java:${env.BUILD_TAG}")
 
                         }
                     }
@@ -40,7 +40,7 @@ pipeline {
         stage("Push Docker Image"){
                             steps {
                                 script{
-                                  dockerImage = docker.withRegistry('','dockerhub')
+                                  dockerImage = myDocker.withRegistry('','dockerhub')
                                   dockerImage.push()
                                   dockerImage.push('latest')
                                 }
