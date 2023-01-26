@@ -1,10 +1,8 @@
 pipeline {
-    agent any
+    agent { docker { image 'maven:3.10.1'}}
     environment {
         dockerHome = tool 'myDocker'
         mavenHome = tool 'myMaven'
-        javaHome = tool 'OpenJDK_11.0.18'
-        PATH = "$dockerHome/bin:$mavenHome/bin:$javaHome/bin:$PATH"
     }
     stages{
         stage("Checkout"){
