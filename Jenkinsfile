@@ -8,7 +8,8 @@ pipeline {
         stage("Checkout"){
             steps {
                 script {
-                    dockerImage = docker.image("mongo:latest").withRun('-d -p 27017:27017 mongo')
+                    dockerImage = docker.withRegistry('','dockerhub')
+                    dockerImage = docker.image("mongo:latest").withRun('-d -p 27017:27017')
                 }
                 sh 'mvn --version'
                 echo "PATH $PATH"
