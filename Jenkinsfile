@@ -3,9 +3,8 @@ pipeline {
     environment {
         dockerHome = tool 'myDocker'
         mavenHome = tool 'myMaven'
-        PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
-        env.JAVA_HOME="${tool 'OpenJDK_11.0.18'}"
-        env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
+        javaHome = tool 'OpenJDK_11.0.18'
+        PATH = "$dockerHome/bin:$mavenHome/bin:$javaHome/bin:$PATH"
     }
     stages{
         stage("Checkout"){
