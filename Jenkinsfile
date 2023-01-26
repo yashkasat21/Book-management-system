@@ -7,10 +7,7 @@ pipeline {
     stages{
         stage("Checkout"){
             steps {
-                script {
-                    dockerImage = docker.withRegistry('','dockerhub')
-                    dockerImage = docker.image("mongo:latest").withRun('-d -p 27017:27017')
-                }
+                sh 'docker version'
                 sh 'mvn --version'
                 echo "PATH $PATH"
                 echo "Build number $BUILD_NUMBER"
