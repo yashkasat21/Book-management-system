@@ -15,8 +15,6 @@
 	<description>This project is for implementing grqphql in spring boot</description>
 	<properties>
 		<java.version>11.0.17</java.version>
-		<maven.compiler.source>11.0.17</maven.compiler.source>
-		<maven.compiler.target>11.0.17</maven.compiler.target>
 	</properties>
 	<dependencies>
 
