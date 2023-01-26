@@ -3,7 +3,7 @@ package com.graphql.learn.model;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
+import javax.persistence.Id;
 
 @Document(collection = "books")
 @Getter

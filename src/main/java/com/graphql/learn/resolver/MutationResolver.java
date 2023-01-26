@@ -15,7 +15,7 @@ public class MutationResolver {
     private BookService bookService;
 
     @MutationMapping("createBook")
-    public Book create(@Argument BookInput book) {
+    public Book create(@Argument("input") BookInput book) {
         Book b = new Book();
         b.setTitle(book.getTitle());
         b.setDesc(book.getDesc());

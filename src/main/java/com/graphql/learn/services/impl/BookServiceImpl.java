@@ -32,7 +32,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book get(String bookId) {
         Book b = this.bookRep.findById(bookId);
-        if(b == null) {
+        if (b == null) {
             throw new RuntimeException("Book not found");
         }
         return b;
@@ -42,7 +42,7 @@ public class BookServiceImpl implements BookService {
     public String delete(String bookId) {
         Book b;
         b = this.get(bookId);
-        if(b == null) {
+        if (b == null) {
             throw new NullPointerException();
         }
         this.bookRep.delete(b);

@@ -1,12 +1,12 @@
 type Mutation{
-createBook(book:BookInput):Book
+createBook(input: BookInput): Book
 deleteBook(bookId: String): String
 }
 
 type Query{
 
 allBooks:[Book]
-getBook(bookId:Int):Book
+getBook(bookId:String):Book
 
 }
 type Book{
