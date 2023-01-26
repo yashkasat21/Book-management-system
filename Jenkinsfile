@@ -1,8 +1,15 @@
 pipeline {
     agent { docker { image 'maven:3.8.7-eclipse-temurin-17-focal'}}
+    environment {
+        dockerHome = tool 'myDocker'
+        PATH = "$dockerHome/bin:$PATH"
+    }
     stages{
         stage("Checkout"){
             steps {
+                script {
+                    dockerImage = docker.image("mongo:latest")
+                }
                 sh 'docker pull mongo:latest'
                 sh 'docker run -d -p 27017:27017 mongo'
                 sh 'mvn --version'
