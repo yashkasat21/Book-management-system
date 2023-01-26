@@ -9,6 +9,8 @@ pipeline {
         stage("Checkout"){
             steps {
                 sh 'mvn --version'
+                echo "JAVA HOME $JAVA_HOME"
+                sh '%JAVA_HOME%'
                 echo "PATH $PATH"
                 echo "Build number $BUILD_NUMBER"
                 echo "Build TAG $BUILD_TAG"
