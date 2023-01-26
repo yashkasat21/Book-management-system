@@ -1,9 +1,5 @@
 pipeline {
-    agent { docker { image 'maven:3.10.1'}}
-    environment {
-        dockerHome = tool 'myDocker'
-        mavenHome = tool 'myMaven'
-    }
+    agent { docker { image 'maven:3.8.7-eclipse-temurin-17-focal'}}
     stages{
         stage("Checkout"){
             steps {
