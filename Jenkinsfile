@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker { image 'maven:3.8.7-eclipse-temurin-17-focal'}}
     environment {
         dockerHome = tool 'myDocker'
         PATH = "$dockerHome/bin:$PATH"
@@ -7,7 +7,6 @@ pipeline {
     stages{
         stage("Checkout"){
             steps {
-                sh 'docker version'
                 sh 'mvn --version'
                 echo "PATH $PATH"
                 echo "Build number $BUILD_NUMBER"
