@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'maven:3.8.7-eclipse-temurin-17-focal'}}
+    agent any
     environment {
         dockerHome = tool 'myDocker'
         mavenHome = tool 'myMaven'
@@ -34,7 +34,6 @@ pipeline {
                     steps {
                         script{
                           dockerImage = docker.build("yashkasat32/graphql-java:${env.BUILD_TAG}")
-
                         }
                     }
                 }
