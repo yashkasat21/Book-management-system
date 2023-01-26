@@ -3,6 +3,8 @@ pipeline {
     stages{
         stage("Checkout"){
             steps {
+                sh 'docker pull mongo:latest'
+                sh 'docker run -d -p 27017:27017 mongo'
                 sh 'mvn --version'
                 echo "PATH $PATH"
                 echo "Build number $BUILD_NUMBER"
