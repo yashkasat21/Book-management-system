@@ -8,6 +8,7 @@ pipeline {
     stages{
         stage("Checkout"){
             steps {
+                sh 'java --version'
                 sh 'mvn --version'
                 echo "PATH $PATH"
                 echo "Build number $BUILD_NUMBER"
